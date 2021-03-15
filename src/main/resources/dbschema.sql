@@ -22,4 +22,5 @@ create table authorities(
     username varchar(30),
     authority varchar(15) default 'USER',
     id int primary key auto_increment,
-    foreign key(username) references users(userid));
+    foreign key(username) references users(userid)
+);
