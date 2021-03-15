@@ -1,0 +1,39 @@
+#body{
+    /* background-image: url("download (2).jfif"); */
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: #00afaf;
+    margin-top:150px;
+    margin: 0;
+    padding: 0;
+}
+#content{
+    left: 50%; 
+    top: 50%; 
+    width: 25%; 
+    background-color:rgba(0,0,0, 0.5); 
+    background-size: cover;
+    height: 450px;
+    align-content: center;
+}
+#user{color: white; }
+#pass{color: white;}
+
+#imgt{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    margin-left: 35%;
+}
+
+@media(max-width:480px){
+	#content{
+	left:0;
+	right:0;
+	width:100%;
+	}
+	.register h4{
+		font-size:1.3em;
+	}
+}
+

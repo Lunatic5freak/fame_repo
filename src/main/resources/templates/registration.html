@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="register.css" type="text/css" />
+    <title>Sign Up</title>
+  </head>
+
+  <body id="body">
+    <h1
+      style="
+        text-align: center;
+        margin: 0 0 75px 0;
+        color: lime;
+        text-shadow: 0 5px 5px red;
+      "
+    >
+      WELCOME TO PDF STORE
+    </h1>
+    <div class="container" id="content">
+      <img src="anulogo.png" class="img-thumbnail" alt="" id="imgt" />
+      <h3 style="text-align: center; color: white; margin-top: 30px">
+        Sign Up
+      </h3>
+      <form th:action="@{/register/save}" method="POST" name="regForm" onsubmit="return validateForm()" encType="multipart/form-data">
+    <div>
+        <label for="user" id="user">Name:</label> 
+        <div class="input-group">
+          <span class="input-group-text"
+            ><i class="fa fa-user"></i
+          ></span>
+          <input
+            th:type="text" th:field="${users.fname}" id="fname"
+            class="form-control"
+            placeholder="First Name"
+            required
+          />
+        </div>
+    </div>
+          <div>
+          <label for="user" id="user">Last Name:</label>
+          <div class="input-group">
+            <span class="input-group-text"
+              ><i class="fa fa-mobile"></i
+            ></span>
+            <input
+             th:type="text" th:field="${users.lname}" id="lname"
+              class="form-control"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+          </div>
+          <label for="user" id="user">Email:</label>
+          <div class="input-group">
+            <span class="input-group-text"
+              ><i class="fa fa-envelope"></i
+            ></span>
+            <input
+              th:type="text" th:field="${users.email}" id="id"
+              class="form-control"
+              placeholder="Email"
+              required
+            />
+          </div>
+           <label for="user" id="user">Phone Number:</label>
+          <div class="input-group">
+            <span class="input-group-text"
+              ><i class="fa fa-envelope"></i
+            ></span>
+            <input
+              th:type="text" th:field="${users.contact}" id="id"
+              class="form-control"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+        <label for="password" id="pass" style="margin-top: 2px"
+          >Password:</label
+        >
+        <div class="input-group">
+          <span class="input-group-text"
+            ><i class="fa fa-lock"></i
+          ></span>
+          <input
+            th:type="password" th:field="${users.password}" id="password"
+            class="form-control"
+            placeholder="Password"
+            required
+          /><span></span>
+        </div>
+        <label for="password" id="user">Confirm Password:</label> 
+        <div class="input-group">
+            <span class="input-group-text"
+              ><i class="fa fa-lock"></i
+            ></span>
+            <input
+              type="password"
+              name="cpassword"
+              class="form-control"
+              placeholder="Confirm Password"
+              required
+            /><span></span>
+          </div>
+          <div class="input-group">
+          	<input type="file" name="pimage" class="form-control"/>
+          </div>
+        <input
+          type="submit"
+          value="Sign Up"
+          class="btn btn-primary"
+          style="margin-top: 15px"
+        />
+      </form>
+    </div>
+    <footer>
+      <div style="text-align: center; margin-top: 10px">
+        <h4>Devloped Managed by:</h4>
+        <h5>L Solution Pvt. Ltd.</h5>
+        <h6>Contact Admin</h6>
+        <a
+          href="mailto:bbcmohanty.1999@gmail.com"
+          style="font-size: 15px; color: black"
+          ><i class="fa fa-envelope"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/the_living_dead0"
+          target="_blank"
+          style="font-size: 15px; color: black; margin-left: 2px"
+          ><i class="fa fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.facebook.com/Lucky"
+          target="_blank"
+          style="font-size: 15px; color: black; margin-left: 2px"
+          ><i class="fa fa-facebook"></i
+        ></a>
+      </div>
+    </footer>
+    <script>
+        function validateForm(){
+            var pass=document.forms["regForm"]["password"].value;
+            var cpass=document.forms["regForm"]["cpassword"].value;
+            console.log(pass);
+            if(pass!=cpass){
+                alert("Password must be Same!");
+                return false;
+            }
+        }
+    </script>
+  </body>
+</html>

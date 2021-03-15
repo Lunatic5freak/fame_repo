@@ -1,0 +1,98 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<!-- Latest compiled JavaScript -->
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/style5.css}" />
+<title>Home</title>
+
+<style type="text/css">
+	.optn {
+		margin-left:70%;
+	}
+	@media(max-width:480px){
+		.optn{
+			margin-left:30%;
+		}
+	}
+	.user-data{
+		margin:3% 0 0 35%;
+		font-family:"Times New Roman",Times,Serif;
+	}
+	.user-data img{
+		width:300px;
+		height:300px;
+		padding:1%;
+		border:1px solid black;
+		border-radius:10%;
+	}
+	.user-data p{
+		margin:5px 0 0 2%;
+		font-size:1.5em;
+		font-weight:bold;
+	}
+	
+	@media(max-width:480px){
+		.user-data{
+			margin:5px 0 0 0;
+		}
+		.user-data p{
+			font-size:1em;
+		}
+	}
+</style>
+</head>
+
+<body>
+<div class="container">
+		<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+			<p>FAME</p>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav optn">
+					<li class="nav-item"><a href="/" class="nav-link btn btn-primary"><i
+							class="fa fa-home" aria-hidden="true"></i></a></li>
+					<li class="nav-item">
+						<form th:action="@{/logout}" class="form-inline" method="post">
+							<input
+								class="form-control mr-sm-2 justify-content-center btn btn-primary"
+								type="submit" value="logout" />
+						</form> 
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-primary" th:href="@{/user/update}"> Update</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-primary"th:href="@{/user/changepassword}"> Update Password</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	
+	<div class="container user-data" id="userdata">
+		<img th:src="@{/user/showImage}" alt="img">
+		<p>First name:<span th:text="${user.fname}"> </span></p>
+		<p>Last name:<span th:text="${user.lname}"> </span></p>
+		<p>Email:<span th:text="${user.email}"> </span></p>
+		<p>Number:<span th:text="${user.contact}"> </span></p>
+	</div>
+	
+	</body>
+</html>

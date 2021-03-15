@@ -1,0 +1,87 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<!-- Latest compiled JavaScript -->
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/style5.css}" />
+<title>Update</title>
+<style>
+.optn {
+		margin-left:70%;
+	}
+	@media(max-width:480px){
+		.optn{
+			margin-left:30%;
+		}
+	}
+</style>
+
+</head>
+
+<body>
+<div class="container">
+		<nav class="navbar navbar-expand-md bg-primary navbar-dark">
+			<p>FAME</p>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav optn">
+					<li class="nav-item"><a href="/" class="nav-link btn btn-primary"><i
+							class="fa fa-home" aria-hidden="true"></i></a></li>
+					<li class="nav-item">
+						<form th:action="@{/logout}" class="form-inline" method="post">
+							<input
+								class="form-control mr-sm-2 justify-content-center btn btn-primary"
+								type="submit" value="logout" />
+						</form> 
+					</li>
+					<li class="nav-item">
+						<a class="nav-link btn btn-primary" th:href="@{/user/update}"> Update</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container">
+		<form th:action="@{/user/updateinfo}" method="post" th:object="${userinfo}" encType="multipart/form-data">
+			<input type="hidden" th:field="${userinfo.email}">
+			<input type="hidden" th:field="${userinfo.password}">
+			<div class="form-group">
+				<label for="fname">First Name:</label>
+				<input type="text" th:field="*{fname}" name="fname" class="form-control">
+			</div>
+				<div class="form-group">
+				<label for="lname">Last Name:</label>
+				<input type="text" th:field="*{lname}" name="lname" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="contact">Contact:</label>
+				<input type="text" th:field="*{contact}" name="contact" class="form-control">
+			</div>
+				<div class="form-group">
+				<label for="photo">Profile Image:</label>
+				<input type="file" name="photo" class="form-control">
+			</div>
+			<input type="submit" class="btn btn-primary btn-block" value="Update">
+		</form>
+	</div>
+	
+</body>
+</html>
